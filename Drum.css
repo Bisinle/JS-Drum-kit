@@ -22,8 +22,17 @@ background-color: #222;
   flex-direction: column;
   flex-shrink: 1;
   margin: 10px; 
-  padding: 10px; 
+  padding: 1rem .5rem; 
+  position: relative;
+  transition: all 0.07s;
+  text-shadow: 0 0 5px white;
 
+
+}
+.playing{
+  transform: scale(1,1);
+  border-color: #068f8f;
+  box-shadow: 0 0 10px coral;
 }
 .key kbd{
   color: #f0094d;
@@ -31,9 +40,14 @@ background-color: #222;
   
 }
 .key span{
+  line-height: 3;
   color: rgb(7, 156, 156);
-  font: weight 100px;;
-  font-size: 1.5rem;
+  font-weight: bold;
+  font-size: 1.1rem;
   flex-shrink: 1;
+  position: absolute;
+  bottom: -60px;
+  left: 0px;
+  text-shadow: none;
   
 }
