@@ -169,32 +169,26 @@ document.body.append(audio_L)
 
 
 
-
-window.addEventListener('keydown', function(event){
+function playSound(event){
   const audio =document.querySelector(`audio[data-key="${event.keyCode}"]`)
   const key = document.querySelector(`.key[data-key="${event.keyCode}"]`)
-  
-
-  
   if(!audio) return;//stops the f(x) from running if there's no keyCode for the key pressed
   audio.currentTime =0;//rewins to the start
   audio.play(); 
  key.classList.add('playing')
-})
+}
+
+
 function removeTransition(e){
 console.log(e.propertyName);
   if(e.propertyName !== 'transform') return;
   this.classList.remove('playing')
 }
 
+
 const allKeys = document.querySelectorAll('.key')
 allKeys.forEach(key => key.addEventListener('transitionend', removeTransition) );
-window.addEventListener('keyup', function(event) {
-  const key = document.querySelector(`.key[data-key="${event.keyCode}"]`);
-  if (!key) return; // Stops the function from running if there's no keyCode for the key released
-  if (event.propertyName === 'transform') {
-    key.classList.remove('playing');
-  }
-});
+window.addEventListener('keydown', playSound)
+
   
 
